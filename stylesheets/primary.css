@@ -18,15 +18,18 @@ body{
 .actionbar ul li{
 }
 .actionbar ul li a{
+  font-family: 'Poppins' ,sans-serif;
+
   display: block;
   text-align: center;
   text-decoration: none;
-  color: white;
+  color: black;
   padding: 15px 20px;
+  background-color: #E3FFE7;
 }
 
 .actionbar ul li a:hover{
-  background-color: #111111;
+  background-color: #E3FFF7;
 }
 
 #navright{

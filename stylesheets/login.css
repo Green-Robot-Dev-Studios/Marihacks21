@@ -1,0 +1,8 @@
+.login {
+  position: fixed;
+  left: 45%;
+  top: 25%;
+  width: auto;
+  background-color: white;
+  padding: 20px;
+}

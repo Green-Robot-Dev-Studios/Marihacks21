@@ -8,11 +8,15 @@
   font-family: 'Poppins' ,sans-serif;
 }
 
-input[type=text],[type=password]{
+input[type=email],[type=password]{
   font-family: 'Poppins' ,sans-serif;
   border-radius: 3px;
   border-color: #EEEEEE;
   box-sizing: border-box;
+}
+
+body{
+  background-image: none;
 }
 
 input[type=submit]{

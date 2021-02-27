@@ -1,6 +1,8 @@
 body{
   margin: 0;
-  background-color: #1c9603;
+  background-image: url("images/mainpage-background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .actionbar {
   background-color: #211f21;
@@ -34,4 +36,23 @@ body{
 
 #navright{
   float: right;
+}
+
+.code{
+  position: fixed;
+  top: 67%;
+  left: 35.7%;
+}
+.code input[type=number]{
+  font-size: 3.7vmax;
+  width: 28.3vmax;
+
+
+  -moz-appearance: textfield;
+}
+
+.code input::-webkit-outer-spin-button,
+.code input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

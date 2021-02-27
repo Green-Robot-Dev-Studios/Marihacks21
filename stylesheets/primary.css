@@ -1,0 +1,34 @@
+body{
+  margin: 0;
+  background-color: #1c9603;
+}
+.actionbar {
+  background-color: #211f21;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.actionbar ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: visible;
+}
+.actionbar ul li{
+}
+.actionbar ul li a{
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  padding: 15px 20px;
+}
+
+.actionbar ul li a:hover{
+  background-color: #111111;
+}
+
+#navright{
+  float: right;
+}

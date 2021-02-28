@@ -20,62 +20,31 @@
 
         <div>
 
-            <form id="addedQuestion" action="" method="post">
-                <h1>
-                    Question:
-                </h1>
+            <form class="qType" action="addQuestion.html" method="get">
+                <label for="questionType">Choose a question style</label>
+                <select id="questionType" name="questionType">
+                    <option value="multipleChoice">Multiple Choice</option>
+                    <option value="shortAnswer">Short Answer</option>
+                </select>
+                <input type="submit" value="Select">
+            </form>
+            <form id="newQuestion" action="processNewQ.html" method="get">
+                Class: <input type="text" name="class" value="">
+                <h1>Question:</h1>
                 <textarea name = "addedQuestion"
                           rows = "10"
                           cols = "80" placeholder="Enter your question" id="qArea"></textarea>
+                <h1>Reference Answer:</h1>
+                <div id="answerArea">
 
-            </form>
+                </div>
 
-
-            <form id="addedSolution" action="" method="post">
-                <h1>
-                    Reference Answer:
-                </h1>
-
-                <label for="questionType">Choose a question style</label>
-                <select id="questionType" name="questionTypeList">
-                    <option value="MultiChoice">Multiple Choice</option>
-                    <option value="ShortAnswer">Short Answer</option>
-                </select>
-
-                <!-- IF IT IS SHORT ANSWER-->
-                <!--
                 <br>
-                <textarea name = "shortAnwer"
-                          rows = "10"
-                          cols = "80">Enter your solution</textarea>
-                -->
+                <br>
 
-
-                <!-- IF IT IS MULTIPLE CHOICE-->
-                <!--
-                <textarea name = "shortAnwer"
-                    rows = "3"
-                    cols = "80">Enter your solution</textarea>
-                <textarea name = "shortAnwer"
-                    rows = "3"
-                    cols = "80">Enter your solution</textarea>
-                <textarea name = "shortAnwer"
-                    rows = "3"
-                    cols = "80">Enter your solution</textarea>
-                <textarea name = "shortAnwer"
-                    rows = "3"
-                    cols = "80">Enter your solution</textarea>
-                -->
-
+                <button type='submit'>Add Question</button>
+                <button type='submit' formaction="teacher.html">Cancel</button>
             </form>
-
-
-            <br>
-            <br>
-
-            <button type='submit' onclick='' form="addedQuestion"style='width: 110px; height: 40px; border-radius: 3px; background-color: lightblue; font-weight: 700;'>Add Question</button>
-
-            <button type='submit' onclick='' form=""style='width: 110px; height: 40px; border-radius: 3px; background-color: lightblue; font-weight: 700;'>Cancel</button>
 
         </div>
 

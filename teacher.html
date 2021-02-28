@@ -18,6 +18,14 @@
         </div>
 
         <div id="manager">
+            <form action="teacher.html" method="get">
+              <label for="classes">Select a class:</label>
+                  <select name="class" id="class">
+
+
+                  </select>
+              <input type="submit" value="Select">
+            </form>
             <div id="qList">
 
             </div>
@@ -26,7 +34,7 @@
 
             <form class="newquestion" action="addQuestion.html" method="get">
                 <input type="text" name="question" value="" hidden>
-                <input type="submit" name="addQ" value="New Question">
+                <input type="submit" value="New Question">
             </form>
         </div>
         <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>

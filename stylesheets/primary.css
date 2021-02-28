@@ -25,7 +25,7 @@ body{
   text-align: center;
   text-decoration: none;
   color: black;
-  padding: 15px 20px;
+  padding: 10px 10px;
   background-color: #E3FFE7;
 }
 
@@ -38,14 +38,17 @@ body{
 }
 
 .code{
+  margin: 0;
   position: fixed;
-  top: 67%;
+  top: 50%;
   left: 35.7%;
+
+  padding: 3% 5%;
+  background-color: #00c200;
 }
 .code input[type=number]{
-  font-size: 3.7vmax;
-  width: 28.3vmax;
-
+  font-size: 300%;
+  width: 50%;
 
   -moz-appearance: textfield;
 }

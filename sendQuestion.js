@@ -28,7 +28,7 @@ async function entry(){
     }
     selectedClass["active"] = selectedQuestion;
 
-    updateClass(uid, GET["class"][0], selectedClass);
+    await updateClass(uid, GET["class"][0], selectedClass);
 
     console.log(selectedClass);
     window.location.replace("waitingForResult.html?class="+GET["class"][0]);

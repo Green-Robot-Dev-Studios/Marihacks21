@@ -71,5 +71,4 @@ async function entry(){
 
     var eQ = document.getElementById('editedQ');
     eQ.value = (GET["editQuestion"]) ? GET["editQuestion"][0] : "";
-
 }

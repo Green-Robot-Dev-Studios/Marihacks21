@@ -55,30 +55,59 @@ body {
 
 .center {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     height: 100%;
-    flex-wrap: wrap;
+    flex: 1 1 0%;
 }
 
 .code {
-    width: 40%;
-    height: 30%;
+
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.container {
     background-color: #E3FFE7;
     box-shadow: 8px 8px #bde3c2;
+    position: relative;
 }
 
 .classCode {
-    margin-top: 20%;
+    margin-top: 10%;
+}
+
+.startLearning {
+    justify-self: flex-end;
+    flex: 0 0 auto;
+    margin-bottom: 10%;
+    text-shadow: 1px 1px rgb(0, 0, 0, .5);
+    font-size: xxx-large;
+}
+
+.sticky {
+    position: absolute;
+    right: 0;
+    transform: translate(50%, -50%);
+}
+
+.sticky2 {
+    position: absolute;
+    bottom: 0;
+    transform: translate(-50%, 50%);
 }
 
 .input {
     width: 80%;
     display: block;
-    margin: 15% auto 0% auto;
-    top: 70%;
+    margin: 10% auto 6% auto;
     border-color: #bde3c2;
     border: 3px #bde3c2 solid;
+    font-size: large;
 }
 
 .code input[type=text] {

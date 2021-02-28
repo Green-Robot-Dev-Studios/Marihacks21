@@ -101,7 +101,8 @@ async function createClassroom(name) {
 
 // Function that adds student answers
 async function addStudentAnswer(teacherName, classToEdit, studentName, answer) {
-    var obj = await db.collection("classroom").doc(teacherName).collection("classes").doc(classToEdit).collection("student_name").doc(studentName).get().then((doc) => {return doc.data()});
+    var obj = {questions: []};
+    obj = await db.collection("classroom").doc(teacherName).collection("classes").doc(classToEdit).collection("student_name").doc(studentName).get().then((doc) => {return doc.data()});
     obj["questions"].push(answer);
     await db.collection("classroom").doc(teacherName).collection("classes").doc(classToEdit).collection("student_name").doc(studentName).set(obj);
 
@@ -135,7 +136,7 @@ async function testStudent() {
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     // User logged in already or has just logged in.
-    console.log(user.uid);
+    //console.log(user.uid);
     uid = user.uid;
     entry();
     testStudent();

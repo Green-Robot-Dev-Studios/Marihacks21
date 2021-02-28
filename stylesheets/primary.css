@@ -43,10 +43,10 @@ body{
   top: 50%;
   left: 35.7%;
 
-  padding: 3% 5%;
+  padding: 1% 0%;
   background-color: #00c200;
 }
-.code input[type=number]{
+.code input[type=text]{
   font-size: 300%;
   width: 50%;
 

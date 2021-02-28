@@ -57,10 +57,18 @@ async function entry(){
                 default:
                     ans = 0;
             }
-
-            data["questions"].push({answers: [GET[0][0],GET[1][0],GET[2][0],GET[3][0]], correct_answer: ans, question: GET["addedQuestion"][0]});
+            if(GET["editedQ"]){
+                console.log(GET["editedQ"][0]);
+                data["questions"][GET["editedQ"][0]] = {answers: [GET[0][0],GET[1][0],GET[2][0],GET[3][0]], correct_answer: ans, question: GET["addedQuestion"][0]}
+            }else{
+                data["questions"].push({answers: [GET[0][0],GET[1][0],GET[2][0],GET[3][0]], correct_answer: ans, question: GET["addedQuestion"][0]});
+            }
         }else{ //SHORT ANSWER
-            data["questions"].push({answers: [GET[0][0]], correct_answer: 0, question: GET["addedQuestion"][0]});
+            if(GET["editedQ"]){
+                data["questions"][GET["editedQ"][0]] = {answers: [GET[0][0]], correct_answer: 0, question: GET["addedQuestion"][0]}
+            }else{
+                data["questions"].push({answers: [GET[0][0]], correct_answer: 0, question: GET["addedQuestion"][0]});
+            }
         }
     }else{
         //MULTIPLE CHOICE
@@ -100,7 +108,5 @@ async function entry(){
 
     updateClass(uid, GET["class"][0], data);
 
+    window.location.replace("teacher.html");
 }
-
-//Commented out for debuging, uncomment to redirect when done.
-//window.location.replace("teacher.html");

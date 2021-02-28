@@ -106,7 +106,7 @@ async function entry(){
 
     console.log(data);
 
-    updateClass(uid, GET["class"][0], data);
+    await updateClass(uid, GET["class"][0], data);
 
     window.location.replace("teacher.html");
 }

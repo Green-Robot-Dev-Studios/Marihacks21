@@ -25,7 +25,7 @@ async function endQ(){
     var GET = parseURLParams(window.location.search);
     var theClass = await getClass(uid, GET["class"][0]);
     theClass["active"] = -1;
-    updateClass(uid, GET["class"][0], theClass);
+    await updateClass(uid, GET["class"][0], theClass);
     ctd();
 }
 

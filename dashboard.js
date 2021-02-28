@@ -19,8 +19,15 @@ function parseURLParams(url) {
 
 
 async function entry(){
+    var cc;
+    try {
+         cc = await getClassroomCode(uid);
+    } catch (e) {
+        await createClassroom(uid);
+    }
+
       var codeText = document.getElementById('classcode');
-      codeText.innerHTML = "Class Code: " + await getClassroomCode(uid);
+      codeText.innerHTML = "Class Code: " + cc;
 
 
       var qList = document.getElementById('qList');

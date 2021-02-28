@@ -14,19 +14,22 @@ firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 
 var uid = "";
+async function getUidState() {
+    await firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User logged in already or has just logged in.
+        console.log(user.uid);
+        uid = user.uid;
+      } else {
+        // User not logged in or has just logged out.
+      }
+    });
+}
 
-firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    // User logged in already or has just logged in.
-    console.log(user.uid);
-    uid = user.uid;
-  } else {
-    // User not logged in or has just logged out.
-  }
-});
 
 // Function that gets user id
-function getUid() {
+async function getUid() {
+    await getUidState();
     return uid;
 }
 
@@ -86,7 +89,7 @@ async function test() {
             {answers: ["Richard", "Tyler", "Drake", "Blevins"], correct_answer: 0, question: "Ninja's first name"},
         ]
     });
-    addClass(getUid(), "jan27", {
+    addClass(await getUid(), "jan27", {
         active: -1,
         questions: [
             {answers: ["Rowling", "Kinney", "Patterson", "Lil Ficara"], correct_answer: 0, question: "who wrote Harry Potter"},
@@ -94,7 +97,8 @@ async function test() {
             {answers: ["2", "1", "420", "520"], correct_answer: 0, question: "what is 1+1"},
             {answers: ["Richard", "Tyler", "Drake", "Blevins"], correct_answer: 0, question: "Ninja's first name"},
         ]
-    })
+    });
+    console.log(await getUid());
 }
 
 test();

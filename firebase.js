@@ -138,7 +138,7 @@ firebase.auth().onAuthStateChanged((user) => {
     console.log(user.uid);
     uid = user.uid;
     entry();
-    //testStudent();
+    testStudent();
   } else {
     // User not logged in or has just logged out.
   }

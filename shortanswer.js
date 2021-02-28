@@ -17,13 +17,18 @@ function parseURLParams(url) {
     return parms;
 }
 
+var params;
+
 async function entry() {
-    var params = parseURLParams(window.location.search);
+    params = parseURLParams(window.location.search);
     question = params["q"][0];
 
     document.getElementById("q").innerHTML = question;
 }
 
 async function send() {
-    //await addStudentAnswer()
+    // addStudentAnswer(teacherName, classToEdit, studentName, answer) {
+    params = parseURLParams(window.location.search);
+    await addStudentAnswer(params["t"][0], params["c"][0], params["n"][0], document.getElementById("i").value);
+    location.assign("waitingroom.html?code=" + params["code"][0] + "&name=" + params["n"][0]);
 }

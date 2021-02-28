@@ -30,10 +30,22 @@ async function entry() {
         });
     });
     db.collection("classroom").doc(classroom).collection("classes").where("active", "!=", -1).onSnapshot((qs) => {
-        qs.forEach((doc) => {
+        qs.forEach(async (doc) => {
             console.log(doc.data());
             var active = doc.data()["active"];
-            location.assign("shortAnswer.html?q=" + doc.data()["questions"][active]["question"]);
+            var q = [];
+            q = await db.collection("classroom").doc(classroom).collection("classes").doc(doc.id).collection("student_name").doc(name).get();
+            try {
+                q = q.data()["questions"];
+            } catch {
+                location.assign("shortAnswer.html?q=" + doc.data()["questions"][active]["question"] + "&t=" + classroom + "&c=" + doc.id + "&n=" + name + "&code=" + code);
+                
+            }
+            console.log(q.length, active);
+            if (q.length <= active) {
+                //console.log("send it");
+                location.assign("shortAnswer.html?q=" + doc.data()["questions"][active]["question"] + "&t=" + classroom + "&c=" + doc.id + "&n=" + name + "&code=" + code);
+            }
         });
     });
     //console.log(classroom);

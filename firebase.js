@@ -103,7 +103,13 @@ async function createClassroom(name) {
 async function addStudentAnswer(teacherName, classToEdit, studentName, answer) {
     var obj = {questions: []};
     obj = await db.collection("classroom").doc(teacherName).collection("classes").doc(classToEdit).collection("student_name").doc(studentName).get().then((doc) => {return doc.data()});
+    try {
+        console.log(obj["questions"], classToEdit);
+    } catch {
+        obj = {questions: []};
+    }
     obj["questions"].push(answer);
+    console.log(obj);
     await db.collection("classroom").doc(teacherName).collection("classes").doc(classToEdit).collection("student_name").doc(studentName).set(obj);
 
 }
@@ -139,7 +145,7 @@ firebase.auth().onAuthStateChanged((user) => {
     //console.log(user.uid);
     uid = user.uid;
     entry();
-    testStudent();
+    //testStudent();
   } else {
     // User not logged in or has just logged out.
   }

@@ -89,7 +89,7 @@ async function createClassroom(name) {
 }
 
 // // Function that adds student answers
-// async function addStudentAnswer(teacherName, studentName, class) {
+// async function addStudentAnswer(teacherName, studentName, classToEdit, ) {
 //
 // }
 

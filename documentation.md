@@ -44,10 +44,6 @@ Use `updateClass(name, classToEdit, classData)` function to update a class.
 `classData` is the class object as defined above.
 
 # Adding data
-Use `addClass(name, classToEdit, classData)` function to add a classroom. (Auto assigns classroom code)
+Use `createClassroom(name)` function to add a classroom. (Auto assigns classroom code)
 
 `name` is the UID of the teacher.
-
-`classToEdit` is the date of the class. Format is "feb14" or "jan26".
-
-`classData` is the class object as defined above.

@@ -49,6 +49,8 @@ async function entry(){
               //console.log(qs[num]);
               qListHtml = qListHtml + `
                           <form class="question" action="addQuestion.html" method="get">
+                              <input type="text" name="class" value="` + selectedClass +  `" hidden>
+                              <input type="text" name="editQuestion" value="` + i +  `" hidden>
                               <input type="text" name="question" value="` + qs[i]["question"] + `" readonly>
                               <input type="submit" name="submit" value="Edit">
                               <input type="submit" name="submit" value="Send Question" formaction="sendQuestion.html">

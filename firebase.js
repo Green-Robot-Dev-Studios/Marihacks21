@@ -1,3 +1,4 @@
+var uid = "";
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -12,26 +13,6 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 var db = firebase.firestore();
-
-var uid = "";
-async function getUidState() {
-    await firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        // User logged in already or has just logged in.
-        console.log(user.uid);
-        uid = user.uid;
-      } else {
-        // User not logged in or has just logged out.
-      }
-    });
-}
-
-
-// Function that gets user id
-async function getUid() {
-    await getUidState();
-    return uid;
-}
 
 // ***************************
 // READ
@@ -89,7 +70,7 @@ async function test() {
             {answers: ["Richard", "Tyler", "Drake", "Blevins"], correct_answer: 0, question: "Ninja's first name"},
         ]
     });
-    addClass(await getUid(), "jan27", {
+    addClass(uid, "jan27", {
         active: -1,
         questions: [
             {answers: ["Rowling", "Kinney", "Patterson", "Lil Ficara"], correct_answer: 0, question: "who wrote Harry Potter"},
@@ -98,7 +79,17 @@ async function test() {
             {answers: ["Richard", "Tyler", "Drake", "Blevins"], correct_answer: 0, question: "Ninja's first name"},
         ]
     });
-    console.log(await getUid());
+    console.log(uid);
 }
 
-test();
+
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    // User logged in already or has just logged in.
+    console.log(user.uid);
+    uid = user.uid;
+    test();
+  } else {
+    // User not logged in or has just logged out.
+  }
+});

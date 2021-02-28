@@ -1,6 +1,3 @@
-
-async function fetch(){
-  console.log(await getUid());
+function entry(){
+  console.log(uid);
 }
-
-fetch();

@@ -21,23 +21,31 @@ function pauseTimer(){
 
 }
 
-function endQ(){
-
+async function endQ(){
+    var GET = parseURLParams(window.location.search);
+    var theClass = await getClass(uid, GET["class"][0]);
+    theClass["active"] = -1;
+    updateClass(uid, GET["class"][0], theClass);
+    ctd();
 }
 
 function cancelQ(){
+    endQ();
+}
 
+function ctd(){
+    window.location.replace("teacher.html");
 }
 
 async function entry(){
     var GET = parseURLParams(window.location.search);
-    console.log(GET["class"][0]);
+    //console.log(GET["class"][0]);
 
 
-    db.collection("classroom").doc(uid).collection("classes").doc(GET["class"][0]).onSnapshot((qs) => {
-        qs.forEach((doc) => {
-            console.log(doc.data());
-        });
-    });
+    //db.collection("classroom").doc(uid).collection("classes").doc(GET["class"][0]).onSnapshot((qs) => {
+    //    qs.forEach((doc) => {
+    //        console.log(doc.data());
+    //    });
+    //});
 
 }

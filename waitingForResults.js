@@ -42,6 +42,7 @@ async function ctd(){
         inc++;
         cc["active"] = inc;
         await updateClass(uid, GET["class"][0], cc);
+        entry();
     }else{
         endQ();
     }

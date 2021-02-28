@@ -5,6 +5,7 @@
         </title>
 
         <link rel="stylesheet" href="stylesheets/primary.css">
+        <link rel="stylesheet" href="stylesheets/addQuestion.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
 
@@ -17,39 +18,39 @@
             </ul>
         </div>
         <br><br>
+        <center>
+            <div class="floater">
 
-        <div>
+                <form class="qType" action="addQuestion.html" method="get">
+                    <label for="questionType">Choose a question style</label>
+                    <select id="questionType" name="questionType">
+                        <option value="multipleChoice">Multiple Choice</option>
+                        <option value="shortAnswer">Short Answer</option>
+                    </select>
+                    <input type="submit" value="Select">
+                </form>
+                <form id="newQuestion" action="processNewQ.html" method="get">
+                    Class: <input type="text" name="class" id="selectedClass" value="">
+                    <h1>Question:</h1>
+                    <textarea name = "addedQuestion"
+                              rows = "10"
+                              cols = "80" placeholder="Enter your question" id="qArea"></textarea>
+                    <h1>Reference Answer:</h1>
+                    <div id="answerArea">
 
-            <form class="qType" action="addQuestion.html" method="get">
-                <label for="questionType">Choose a question style</label>
-                <select id="questionType" name="questionType">
-                    <option value="multipleChoice">Multiple Choice</option>
-                    <option value="shortAnswer">Short Answer</option>
-                </select>
-                <input type="submit" value="Select">
-            </form>
-            <form id="newQuestion" action="processNewQ.html" method="get">
-                Class: <input type="text" name="class" id="selectedClass" value="">
-                <h1>Question:</h1>
-                <textarea name = "addedQuestion"
-                          rows = "10"
-                          cols = "80" placeholder="Enter your question" id="qArea"></textarea>
-                <h1>Reference Answer:</h1>
-                <div id="answerArea">
+                    </div>
 
-                </div>
+                    <input type="text" name="editedQ" id="editedQ" value="" hidden>
 
-                <input type="text" name="editedQ" id="editedQ" value="" hidden>
+                    <br>
+                    <br>
 
-                <br>
-                <br>
+                    <button type='submit'>Add Question</button>
+                    <button type='submit' formaction="teacher.html">Cancel</button>
+                </form>
 
-                <button type='submit'>Add Question</button>
-                <button type='submit' formaction="teacher.html">Cancel</button>
-            </form>
-
-        </div>
-
+            </div>
+        </center>
 
 
         <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>

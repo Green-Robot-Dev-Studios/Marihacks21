@@ -10,3 +10,35 @@
 .newquestion{
     position: static;
 }
+.qContainer {
+    width:50%;
+    padding: 20px;
+    background-color: #E3FFE7;
+    margin: 3px;
+}
+.qContainer:hover {
+    background-color: #E3F1E7;
+
+}
+.qContainer input[type=text]{
+    width: 75%;
+    height: 50px;
+    font-size: 25px;
+    border: none;
+    background-color: transparent;
+}
+
+.qContainer input[type=submit]{
+    width: 10%;
+    height: 64px;
+    border:none;
+    background-color: #BBBBBB;
+    font-size: 17px;
+}
+.qContainer input[type=submit]:hover{
+    background-color: #AAAAAA;
+}
+#nQ{
+    font-size: 15px;
+    width: 14%;
+}

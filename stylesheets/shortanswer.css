@@ -1,0 +1,14 @@
+.floater {
+    margin: 0;
+    background-color: #E3FFE7;
+    padding: 10px;
+    width: 50%;
+}
+
+.floater #freeResponseAnswer{
+    float: none;
+}
+
+.floater input{
+    font-size: 50px;
+}

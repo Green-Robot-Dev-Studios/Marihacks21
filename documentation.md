@@ -47,3 +47,12 @@ Use `updateClass(name, classToEdit, classData)` function to update a class.
 Use `createClassroom(name)` function to add a classroom. (Auto assigns classroom code)
 
 `name` is the UID of the teacher.
+
+# Reading student data
+Use `getStudentAnswers(name, classToRead, studentName)` to get the answers of a given student on a given class.
+
+`name` is the UID of the teacher.
+
+`classToRead` is the class to read.
+
+`studentName` is the name of the student entered by them.

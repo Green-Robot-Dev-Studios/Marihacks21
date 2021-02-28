@@ -58,15 +58,25 @@ async function getClassroomCode(name) {
 
 
 // Function to return a list of answers from the student
-// async function getStudentAnswers(teacherName, studentName) {
-//     var listOfStudentAnswers = [];
-//     await db.collection("student_answers").doc(teacherName).collection("student_name").doc(studentName).("classes").get().then((studentAnswers)) => {
-//         studentAnswers.forEach((studentAnswer) => {
-//             listOfStudentAnswers.push(studentAnswer.data());
-//         });
-//     });
-//     return listOfStudentAnswers;
-// }
+async function getStudentAnswers(teacherName, classToRead, studentName) {
+    var listOfAnswers;
+    await db.collection("classroom").doc(teacherName).collection("classes").doc(classToRead).collection("student_name").doc(studentName).get().then((studentAnswers) => {
+        listOfAnswers = studentAnswers.data();
+    });
+    return listOfAnswers["questions"];
+}
+
+// Function to get a list of students for each teacher
+async function getStudents(teacherName, classToRead) {
+    var students = [];
+    await db.collection("classroom").doc(teacherName).collection("classes").doc(classToRead).collection("student_name").get().then((s) => {
+        s.forEach((student) => {
+            students.push(student.id);
+        });
+    });
+    return students;
+}
+
 
 // ***************************
 // UPDATE
@@ -76,6 +86,7 @@ async function getClassroomCode(name) {
 async function updateClass(name, classToEdit, classData) {
     await db.collection("classroom").doc(name).collection("classes").doc(classToEdit).set(classData);
 }
+
 
 // ***************************
 // CREATE
@@ -88,10 +99,13 @@ async function createClassroom(name) {
     await db.collection("classroom").doc(name).set({code: code});
 }
 
-// // Function that adds student answers
-// async function addStudentAnswer(teacherName, studentName, classToEdit, ) {
-//
-// }
+// Function that adds student answers
+async function addStudentAnswer(teacherName, classToEdit, studentName, answer) {
+    var obj = await db.collection("classroom").doc(teacherName).collection("classes").doc(classToEdit).collection("student_name").doc(studentName).get().then((doc) => {return doc.data()});
+    obj["questions"].push(answer);
+    await db.collection("classroom").doc(teacherName).collection("classes").doc(classToEdit).collection("student_name").doc(studentName).set(obj);
+
+}
 
 // TEST AREA
 async function test() {
@@ -111,6 +125,12 @@ async function test() {
     console.log(uid);
 }
 
+async function testStudent() {
+    addStudentAnswer(uid, "feb14", "emma", 3);
+    console.log(await getStudentAnswers(uid, "feb14", "emma"));
+    console.log(await getStudents(uid, "feb14"));
+}
+
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
@@ -118,6 +138,7 @@ firebase.auth().onAuthStateChanged((user) => {
     console.log(user.uid);
     uid = user.uid;
     entry();
+    testStudent();
   } else {
     // User not logged in or has just logged out.
   }

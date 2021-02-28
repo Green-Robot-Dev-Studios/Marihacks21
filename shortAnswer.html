@@ -13,20 +13,28 @@
 
 
         <div style='transform: scale(0.65); position: relative; top: -100px;'>
-            <h1 style = "text-align:center">The question goes here</h1>
+            <h1 id="q" style = "text-align:center">The question goes here</h1>
             <br>
             <br>
             <br>
 
-            <form id="freeResponseAnswer" action="" method="post">
+            <form id="freeResponseAnswer" action="waitingroom.html">
 
                 <textarea name = "studentResponse"
                           rows = "10"
                           cols = "80">Your answer here</textarea>
             </form>
-            
 
-            <button type='submit' onclick='' form="freeResponseAnswer"style='width: 100px; height: 40px; border-radius: 3px; background-color: lightblue; font-weight: 700;'>Submit</button>
+
+            <button type='submit' onclick='send()' form="freeResponseAnswer"style='width: 100px; height: 40px; border-radius: 3px; background-color: lightblue; font-weight: 700;'>Submit</button>
         </div>
+
+        <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+        <script src="firebase.js"></script>
+        <script src="shortanswer.js"></script>
     </body>
 </html>

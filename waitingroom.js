@@ -29,9 +29,11 @@ async function entry() {
             classroom = doc.id;
         });
     });
-    db.collection("classroom").doc(classroom).collection("classes").where("active", "!=", -1).get().then((qs) => {
+    db.collection("classroom").doc(classroom).collection("classes").where("active", "!=", -1).onSnapshot((qs) => {
         qs.forEach((doc) => {
             console.log(doc.data());
+            var active = doc.data()["active"];
+            location.assign("shortAnswer.html?q=" + doc.data()["questions"][active]["question"]);
         });
     });
     //console.log(classroom);

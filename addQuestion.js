@@ -17,7 +17,6 @@ function parseURLParams(url) {
     return parms;
 }
 
-
 async function entry(){
     var GET = parseURLParams(window.location.search);
     var aArea = document.getElementById('qArea');

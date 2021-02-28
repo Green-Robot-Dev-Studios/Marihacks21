@@ -3,15 +3,22 @@
     <head>
         <title>
         </title>
+
+        <link rel="stylesheet" href="stylesheets/primary.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
     </head>
     <body>
+        <div class="actionbar">
+            <ul>
+                <li><a id="classcode"></a></li>
+                <li><a href="main.html" id="navright"> Main page </a></li>
+            </ul>
+        </div>
+        <br><br>
 
-        <br>
-        <br>
-        <br>
-        <hr/>
-
-        <div style='transform: scale(0.65); position: relative; top: -100px;'>
+        <div>
 
             <form id="addedQuestion" action="" method="post">
                 <h1>
@@ -19,7 +26,7 @@
                 </h1>
                 <textarea name = "addedQuestion"
                           rows = "10"
-                          cols = "80">Enter your question</textarea>
+                          cols = "80" placeholder="Enter your question" id="qArea"></textarea>
 
             </form>
 
@@ -60,7 +67,7 @@
                     cols = "80">Enter your solution</textarea>
                 -->
 
-            </form>                
+            </form>
 
 
             <br>
@@ -69,7 +76,18 @@
             <button type='submit' onclick='' form="addedQuestion"style='width: 110px; height: 40px; border-radius: 3px; background-color: lightblue; font-weight: 700;'>Add Question</button>
 
             <button type='submit' onclick='' form=""style='width: 110px; height: 40px; border-radius: 3px; background-color: lightblue; font-weight: 700;'>Cancel</button>
-        
+
         </div>
+
+
+
+        <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+        <script src="firebase.js"></script>
+        <script src="addQuestion.js"></script>
+
     </body>
 </html>

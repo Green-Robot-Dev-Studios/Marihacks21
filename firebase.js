@@ -117,7 +117,7 @@ firebase.auth().onAuthStateChanged((user) => {
     // User logged in already or has just logged in.
     console.log(user.uid);
     uid = user.uid;
-    test();
+    entry();
   } else {
     // User not logged in or has just logged out.
   }

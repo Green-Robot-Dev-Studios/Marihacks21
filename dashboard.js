@@ -48,13 +48,15 @@ async function entry(){
       for(var i = 0; i < qs.length; i++){
               //console.log(qs[num]);
               qListHtml = qListHtml + `
-                          <form class="question" action="addQuestion.html" method="get">
-                              <input type="text" name="class" value="` + selectedClass +  `" hidden>
-                              <input type="text" name="editQuestion" value="` + i +  `" hidden>
-                              <input type="text" name="question" value="` + qs[i]["question"] + `" readonly>
-                              <input type="submit" name="submit" value="Edit">
-                              <input type="submit" name="submit" value="Send Question" formaction="sendQuestion.html">
-                          </form>
+                          <div class="qContainer" id="`+ i +`">
+                              <form class="question" action="addQuestion.html" method="get">
+                                  <input type="text" name="class" value="` + selectedClass +  `" hidden>
+                                  <input type="text" name="editQuestion" value="` + i +  `" hidden>
+                                  <input type="text" name="question" value="` + qs[i]["question"] + `" readonly>
+                                  <input type="submit" name="submit" value="Edit">
+                                  <input type="submit" name="submit" value="Send Question" formaction="sendQuestion.html">
+                              </form>
+                          </div>
               `;
       }
 

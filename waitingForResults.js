@@ -26,26 +26,55 @@ async function endQ(){
     var theClass = await getClass(uid, GET["class"][0]);
     theClass["active"] = -1;
     await updateClass(uid, GET["class"][0], theClass);
-    ctd();
+    dashboard();
 }
 
 function cancelQ(){
     endQ();
 }
 
-function ctd(){
+async function ctd(){
+    var GET = parseURLParams(window.location.search);
+    var cc = await getClass(uid, GET["class"][0]);
+    var inc = cc["active"];
+
+    if(inc < cc["questions"].length-1){
+        inc++;
+        cc["active"] = inc;
+        await updateClass(uid, GET["class"][0], cc);
+    }else{
+        endQ();
+    }
+}
+
+function dashboard(){
     window.location.replace("teacher.html");
 }
 
 async function entry(){
     var GET = parseURLParams(window.location.search);
     //console.log(GET["class"][0]);
+    //Students have answered
+    var cc = await getClass(uid, GET["class"][0]);
+    mainHeader = document.getElementById('bigText');
+    mainHeader.innerHTML = "Waiting for responses to '"+ cc["questions"][cc["active"]]["question"] +"'";
+
+    var header = document.getElementById('studentsAnswered');
+    var counter = 0;
+
+    var students = await getStudents(uid, GET["class"][0]);
 
 
-    //db.collection("classroom").doc(uid).collection("classes").doc(GET["class"][0]).onSnapshot((qs) => {
-    //    qs.forEach((doc) => {
-    //        console.log(doc.data());
-    //    });
-    //});
+
+    await db.collection("classroom").doc(uid).collection("classes").doc(GET["class"][0]).collection("student_name").onSnapshot((qs) => {
+        counter = 0;
+        qs.forEach(async (doc) => {
+            var ans = await getStudentAnswers(uid, GET["class"][0], doc.id);
+            if(ans[cc["active"]] !== undefined){
+                counter++;
+                header.innerHTML = counter + " Students have answered";
+            }
+        });
+    });
 
 }

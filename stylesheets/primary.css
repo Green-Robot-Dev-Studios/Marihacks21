@@ -1,0 +1,60 @@
+body{
+  margin: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.actionbar {
+  background-color: #211f21;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.actionbar ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  overflow: visible;
+}
+.actionbar ul li{
+}
+.actionbar ul li a{
+  font-family: 'Poppins' ,sans-serif;
+
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  padding: 10px 10px;
+  background-color: #E3FFE7;
+}
+
+.actionbar ul li a:hover{
+  background-color: #E3FFF7;
+}
+
+#navright{
+  float: right;
+}
+
+.code{
+  margin: 0;
+  position: fixed;
+  top: 50%;
+  left: 35.7%;
+
+  padding: 3% 5%;
+  background-color: #00c200;
+}
+.code input[type=number]{
+  font-size: 300%;
+  width: 50%;
+
+  -moz-appearance: textfield;
+}
+
+.code input::-webkit-outer-spin-button,
+.code input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

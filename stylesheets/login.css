@@ -1,0 +1,33 @@
+.login {
+  position: fixed;
+  left: 45%;
+  top: 25%;
+  width: auto;
+  background-color: white;
+  padding: 20px;
+  font-family: 'Poppins' ,sans-serif;
+}
+
+input[type=email],[type=password]{
+  font-family: 'Poppins' ,sans-serif;
+  border-radius: 3px;
+  border-color: #EEEEEE;
+  box-sizing: border-box;
+}
+
+body{
+  background-image: none;
+}
+
+input[type=submit]{
+  font-family: 'Poppins' ,sans-serif;
+  background-color: #BBBBBB;
+  margin: 0;
+  border: none;
+  padding: 5px 20px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover{
+  background-color: #CCCCCC;
+}

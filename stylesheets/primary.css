@@ -2,6 +2,7 @@ body{
   margin: 0;
   background-repeat: no-repeat;
   background-size: cover;
+  font-family: 'Poppins', sans-serif;
 }
 .actionbar {
   background-color: #211f21;
@@ -17,6 +18,7 @@ body{
   overflow: visible;
 }
 .actionbar ul li{
+    
 }
 .actionbar ul li a{
   font-family: 'Poppins' ,sans-serif;

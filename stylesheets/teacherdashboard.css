@@ -1,4 +1,12 @@
+#manager{
+    position: relative;
+    top: 50px;
+}
+
+.questions {
+    position: static;
+}
+
 .newquestion{
-    position: fixed;
-    top:50%;
+    position: static;
 }

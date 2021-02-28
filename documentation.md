@@ -16,7 +16,17 @@ Here is a class:
 ```
 
 # Reading data
-Use the `getClassroom(name)` function to get an object for the given classroom.
+Use the `getClassroom(name)` function to get a list of objects for the given classroom.
+
+`name` is the UID of the teacher.
+
+Use the `getClass(name, classToRead)` function to get an object for the given class.
+
+`name` is the UID of the teacher.
+
+`classToRead` is the class name to read (feb16, Math101, etc.).
+
+Use the `listClasses(name)` function to get a list of the names of the classes;
 
 `name` is the UID of the teacher.
 

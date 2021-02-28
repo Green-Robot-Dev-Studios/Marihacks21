@@ -22,13 +22,29 @@ var params;
 async function entry() {
     params = parseURLParams(window.location.search);
     question = params["q"][0];
+    a1 = params["ans1"][0];
+    a2 = params["ans2"][0];
+    a3 = params["ans3"][0];
+    a4 = params["ans4"][0];
 
     document.getElementById("q").innerHTML = question;
+    document.getElementById("1").innerHTML = a1;
+    document.getElementById("2").innerHTML = a2;
+    document.getElementById("3").innerHTML = a3;
+    document.getElementById("4").innerHTML = a4;
+
 }
 
 async function send() {
     // addStudentAnswer(teacherName, classToEdit, studentName, answer) {
     params = parseURLParams(window.location.search);
-    await addStudentAnswer(params["t"][0], params["c"][0], params["n"][0], document.getElementById("i").value, params["ansNum"][0]);
+
+    var ans;
+    if (document.getElementById("option-1").checked) ans = 0;
+    if (document.getElementById("option-2").checked) ans = 1;
+    if (document.getElementById("option-3").checked) ans = 2;
+    if (document.getElementById("option-4").checked) ans = 3;
+
+    await addStudentAnswer(params["t"][0], params["c"][0], params["n"][0], ans, params["ansNum"][0]);
     location.assign("waitingroom.html?code=" + params["code"][0] + "&name=" + params["n"][0]);
 }

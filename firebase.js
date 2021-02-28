@@ -100,7 +100,7 @@ async function createClassroom(name) {
 }
 
 // Function that adds student answers
-async function addStudentAnswer(teacherName, classToEdit, studentName, answer) {
+async function addStudentAnswer(teacherName, classToEdit, studentName, answer, answerNum) {
     var obj = {questions: []};
     obj = await db.collection("classroom").doc(teacherName).collection("classes").doc(classToEdit).collection("student_name").doc(studentName).get().then((doc) => {return doc.data()});
     try {
@@ -108,7 +108,9 @@ async function addStudentAnswer(teacherName, classToEdit, studentName, answer) {
     } catch {
         obj = {questions: []};
     }
-    obj["questions"].push(answer);
+    var toAdd = {};
+    toAdd[answerNum] = answer;
+    obj["questions"].push(toAdd);
     console.log(obj);
     await db.collection("classroom").doc(teacherName).collection("classes").doc(classToEdit).collection("student_name").doc(studentName).set(obj);
 

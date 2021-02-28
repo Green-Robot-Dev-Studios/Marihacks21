@@ -8,11 +8,11 @@
       <link rel="stylesheet" href="stylesheets/primary.css">
       <link rel="preconnect" href="https://fonts.gstatic.com">
       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
-            
-      
+
+
             <br>
             <br>
-            <h1 style = "text-align:center">The question goes here</h1>
+            <h1 id="q" style="text-align:center">The question goes here</h1>
             <br>
             <br>
             <br>
@@ -26,45 +26,49 @@
               </ul>
             </div>
 
-            <form>
+            <form onsubmit="return false;" id="mc">
                 <div id='block-11' style='padding: 10px;'>
                     <label for='option-11' style=' padding: 5px; font-size: 2.5rem;'>
-                      <input type='radio' name='option' value='CHOICE 1' id='option-1' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;'/>
-                      CHOICE 1</label>
+                      <input  type='radio' name='option' value='1' id='option-1' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;'/>
+                      <z id="1">CHOICE 1</z></label>
                     <span id='result-1'></span>
                   </div>
                   <hr/>
 
                   <div id='block-12' style='padding: 10px;'>
                     <label for='option-12' style=' padding: 5px; font-size: 2.5rem;'>
-                      <input type='radio' name='option' value='CHOICE 2' id='option-2' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;'/>
-                      CHOICE 2</label>
+                      <input type='radio' name='option' value='2' id='option-2' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;'/>
+                      <z id="2">CHOICE 2</z></label>
                     <span id='result-2'></span>
                   </div>
                   <hr />
 
                   <div id='block-13' style='padding: 10px;'>
                     <label for='option-13' style=' padding: 5px; font-size: 2.5rem;'>
-                      <input type='radio' name='option' value='CHOICE 3' id='option-3' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;'/>
-                      CHOICE 3</label>
+                      <input type='radio' name='option' value='3' id='option-3' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;'/>
+                      <z id="3">CHOICE 3</z></label>
                     <span id='result-3'></span>
                   </div>
                   <hr />
 
                   <div id='block-14' style='padding: 10px;'>
                     <label for='option-14' style=' padding: 5px; font-size: 2.5rem;'>
-                      <input type='radio' name='option' value='CHOICE 4' id='option-4' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;'/>
-                      CHOICE 4</label>
+                      <input type='radio' name='option' value='4' id='option-4' style='transform: scale(1.6); margin-right: 10px; vertical-align: middle; margin-top: -2px;'/>
+                      <z id="4">CHOICE 4</z></label>
                     <span id='result-4'></span>
                   </div>
                   <hr />
+                  <button type='submit' onclick='send()' form="multipleChoiceAnswer"style='width: 100px; height: 40px; border-radius: 3px; background-color: lightblue; font-weight: 700;'>Submit</button>
+
             </form>
 
 
-            <form action="" method="post" id="multipleChoiceAnswer">
-            <button type='submit' onclick='' form="multipleChoiceAnswer"style='width: 100px; height: 40px; border-radius: 3px; background-color: lightblue; font-weight: 700;'>Submit</button>
-          </div>
-
-
+          <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+          <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+          <script src="firebase.js"></script>
+          <script src="multiplechoice.js"></script>
     </body>
 </html>

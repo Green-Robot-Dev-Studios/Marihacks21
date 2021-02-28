@@ -29,8 +29,8 @@ async function entry(){
       var classes = await listClasses(uid);
       //console.log(classes);
       var GET = parseURLParams(window.location.search);
-      var selectedClass = (GET) ? GET["class"][0] : classes[0];
-
+      if(GET)
+          var selectedClass = (GET["class"]) ? GET["class"][0] : classes[0];
 
       var cListHtml = "";
       for(var i = 0; i < classes.length; i++){

@@ -36,6 +36,9 @@ body{
 #navright{
   float: right;
 }
+#classcode{
+  float: left;
+}
 
 .code{
   margin: 0;

@@ -17,19 +17,27 @@ function parseURLParams(url) {
     return parms;
 }
 
+function pauseTimer(){
+
+}
+
+function endQ(){
+
+}
+
+function cancelQ(){
+
+}
+
 async function entry(){
     var GET = parseURLParams(window.location.search);
+    console.log(GET["class"][0]);
 
-    var selectedClass;
-    var selectedQuestion;
-    if(GET["class"]){
-        selectedClass = await getClass(uid, GET["class"][0]);
-        selectedQuestion = GET["editQuestion"][0];
-    }
-    selectedClass["active"] = selectedQuestion;
 
-    updateClass(uid, GET["class"][0], selectedClass);
+    db.collection("classroom").doc(uid).collection("classes").doc(GET["class"][0]).onSnapshot((qs) => {
+        qs.forEach((doc) => {
+            console.log(doc.data());
+        });
+    });
 
-    console.log(selectedClass);
-    window.location.replace("waitingForResult.html?class="+GET["class"][0]);
 }

@@ -108,5 +108,5 @@ async function entry(){
 
     updateClass(uid, GET["class"][0], data);
 
-    window.location.replace("waitingForResult.html");
+    window.location.replace("teacher.html");
 }

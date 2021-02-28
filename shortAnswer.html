@@ -5,28 +5,41 @@
         </title>
     </head>
     <body>
+        <link rel="stylesheet" href="stylesheets/primary.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+        <div class="actionbar">
+            <ul>
+              <li><a href="main.html" id="navright"> Main Page </a></li>
+            </ul>
+          </div>
+
 
         <br>
         <br>
         <br>
-        <hr/>
 
+        
+        <h1 style = "text-align:center">The question goes here</h1>
+        <br>
+        <br>
+        <br>
 
         <div style='transform: scale(0.65); position: relative; top: -100px;'>
-            <h1 id="q" style = "text-align:center">The question goes here</h1>
+            <h1 id="q" style="text-align:center">The question goes here</h1>
             <br>
             <br>
             <br>
-
             <form id="freeResponseAnswer" action="waitingroom.html">
-
+            <div>
                 <textarea name = "studentResponse"
                           rows = "10"
                           cols = "80">Your answer here</textarea>
-            </form>
-
 
             <button type='submit' onclick='send()' form="freeResponseAnswer"style='width: 100px; height: 40px; border-radius: 3px; background-color: lightblue; font-weight: 700;'>Submit</button>
+            </form>
+                
         </div>
 
         <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>

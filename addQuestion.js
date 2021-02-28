@@ -22,4 +22,7 @@ function entry(){
     var GET = parseURLParams(window.location.search);
     var aArea = document.getElementById('qArea');
     aArea.innerHTML = GET["question"];
+
+
+    
 }

@@ -17,44 +17,59 @@ function parseURLParams(url) {
     return parms;
 }
 
-
-function entry(){
+async function entry(){
     var GET = parseURLParams(window.location.search);
     var aArea = document.getElementById('qArea');
     aArea.innerHTML = (GET["question"]) ? GET["question"] : "";
+    var cc = document.getElementById('selectedClass');
+    cc.value = (GET["class"]) ? GET["class"][0] : "";
 
     var aArea = document.getElementById('answerArea');
     var answerInput = "";
     var qType = GET["questionType"];
+
+    var theClass;
+    var editedQ;
+    var activeQ;
+    if(GET["class"]){
+        theClass = await getClass(uid, GET["class"][0]);
+        editedQ = GET["editQuestion"][0];
+        activeQ = theClass["questions"][editedQ];
+    }
+    //console.log(theClass["questions"][editedQ]);
+
     if(qType){
         if(qType == "multipleChoice"){
             answerInput = `
-                <input type="text" name="0" value="" placeholder="Answer A"></input>
-                <input type="text" name="1" value="" placeholder="Answer B"></input>
-                <input type="text" name="2" value="" placeholder="Answer C"></input>
-                <input type="text" name="3" value="" placeholder="Answer D"></input><br>
-                <input type="text" name="answer" value="" placeholder="Answer: (Enter A, B, C or D)"></input>
+                <input type="text" name="0" value="` + ((activeQ) ? activeQ["answers"][0]  : "") + `" placeholder="Answer A"></input>
+                <input type="text" name="1" value="` + ((activeQ) ? activeQ["answers"][0]  : "") + `" placeholder="Answer B"></input>
+                <input type="text" name="2" value="` + ((activeQ) ? activeQ["answers"][0]  : "") + `" placeholder="Answer C"></input>
+                <input type="text" name="3" value="` + ((activeQ) ? activeQ["answers"][0]  : "") + `" placeholder="Answer D"></input><br>
+                <input type="text" name="answer" value="` + ((activeQ) ? activeQ["correct_answer"]  : "") + `" placeholder="Answer: (Enter A, B, C or D)"></input>
 
             `;
         }else if(qType == "shortAnswer"){
             answerInput = `
                 <textarea name = "0"
                           rows = "10"
-                          cols = "80" placeholder="Enter the answer." id="aArea"></textarea>
+                          cols = "80" placeholder="Enter the answer." id="aArea"
+                          value="` + ((activeQ) ? activeQ["answers"][0]  : "") + `"></textarea>
 
             `;
         }
     }else{
         answerInput = `
-            <input type="text" name="0" value="" placeholder="Answer A"></input>
-            <input type="text" name="1" value="" placeholder="Answer B"></input>
-            <input type="text" name="2" value="" placeholder="Answer C"></input>
-            <input type="text" name="3" value="" placeholder="Answer D"></input><br>
-            <input type="text" name="answer" value="" placeholder="Answer: (Enter A, B, C or D)"></input>
+            <input type="text" name="0" value="` + ((activeQ) ? activeQ["answers"][0]  : "") + `" placeholder="Answer A"></input>
+            <input type="text" name="1" value="` + ((activeQ) ? activeQ["answers"][1]  : "") + `" placeholder="Answer B"></input>
+            <input type="text" name="2" value="` + ((activeQ) ? activeQ["answers"][2]  : "") + `" placeholder="Answer C"></input>
+            <input type="text" name="3" value="` + ((activeQ) ? activeQ["answers"][3]  : "") + `" placeholder="Answer D"></input><br>
+            <input type="text" name="answer" value="` + ((activeQ) ? activeQ["correct_answer"]  : "") + `" placeholder="Answer: (Enter A, B, C or D)"></input>
 
         `;
     }
     aArea.innerHTML = answerInput;
 
+    var eQ = document.getElementById('editedQ');
+    eQ.value = (GET["editQuestion"]) ? GET["editQuestion"][0] : "";
 
 }

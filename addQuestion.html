@@ -29,7 +29,7 @@
                 <input type="submit" value="Select">
             </form>
             <form id="newQuestion" action="processNewQ.html" method="get">
-                Class: <input type="text" name="class" value="">
+                Class: <input type="text" name="class" id="selectedClass" value="">
                 <h1>Question:</h1>
                 <textarea name = "addedQuestion"
                           rows = "10"
@@ -38,6 +38,8 @@
                 <div id="answerArea">
 
                 </div>
+
+                <input type="text" name="editedQ" id="editedQ" value="" hidden>
 
                 <br>
                 <br>

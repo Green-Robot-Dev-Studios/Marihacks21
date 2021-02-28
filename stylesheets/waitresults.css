@@ -1,0 +1,19 @@
+.floater {
+    margin:0;
+    padding: 50px;
+    height: 50%;
+    background-color: #E3FFE7;
+}
+#action {
+    display: inline;
+    width: 30%;
+    font-size: 50px;
+    z-index = -1;
+}
+
+#continue {
+    display: inline;
+    width: 10%;
+    font-size: 50px;
+    float: right;
+}

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>KRIO</title>
     <link rel="stylesheet" href="stylesheets/primary.css">
-    <link rel="stylesheet" href="stylesheets/login.css">
+    <link rel="stylesheet" href="stylesheets/waitresults.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
 
@@ -19,38 +19,36 @@
     <br>
     <br>
     <br>
-    
-    <div style='transform: scale(0.65); position: middle;'>
-        <h1 style = "text-align:center">Waiting for response</h1>
 
-        <h3 style = "text-align:center"> x/x student answered</h3>
+    <div style='transform: scale(0.65); position: middle;' class="floater">
+        <container>
+        <h1 style="text-align:center">Waiting for response</h1>
 
+        <h3 style="text-align:center" id="studentsAnswered"> x/x student answered</h3>
 
         <br>
         <br>
-        <button type='submit' onclick='' style='width: 800px; height: 40px; border-radius: 3px; background-color: lightblue; font-weight: 1000;'>Pause Timer</button>
+        <button type='submit' id="action" onclick='pauseTimer()'>Pause Timer</button>
         <br>
         <br>
         <br>
-        <button type='submit' onclick='' style='width: 800px; height: 40px; border-radius: 3px; background-color: lightblue; font-weight: 1000;'>End Question</button>
+        <button type='submit' id="action" onclick='endQ()' >End Question</button>
         <br>
         <br>
         <br>
-        <button type='submit' onclick='' style='width: 800px; height: 40px; border-radius: 3px; background-color: lightblue; font-weight: 1000;'>Cancel Question</button>
+        <button type='submit' id="action" onclick='cancelQ()'>Cancel Question</button>
+        <button type='submit' id="continue" onclick=''; font-weight: 1000;'>Continue</button>
+        </container>
     </div>
-
-
-
-    <button type='submit' onclick='' style='width: 100px; height: 40px; float: right; border-radius: 3px; background-color: lightblue; font-weight: 1000;'>Continue</button>
-
-
-
 
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
-    <script src="fireauth.js"></script>
+    <script src="firebase.js"></script>
+
+    <script src="waitingForResults.js"></script>
+
   </body>
 </html>
